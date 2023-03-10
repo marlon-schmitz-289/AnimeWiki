@@ -1,0 +1,42 @@
+﻿<Window x:Class="DragonBallWiki.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ie="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:vm="clr-namespace:DragonBallWiki.ViewModel"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Super KKK (Krass, krank und kool) Anime Character Wiki"
+        Height="720"
+        Width="1280">
+    
+    <Window.DataContext>
+        <vm:MainWindowViewModel x:Name="mwvmodel" />
+    </Window.DataContext>
+    
+    <ie:Interaction.Triggers>
+        <ie:EventTrigger EventName="Loaded">
+            <ie:InvokeCommandAction Command="{Binding CmdOnLoad}"/>
+        </ie:EventTrigger>
+    </ie:Interaction.Triggers>
+    
+    <Grid>
+        <!--#region Rows + Columns-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <!--#endregion-->
+
+        <!--#region Content-->
+        <Frame Grid.Row="0"
+               Grid.Column="0"
+               NavigationUIVisibility="Hidden"
+               Content="{Binding CurrPage}" />
+        <!--#endregion-->
+    </Grid>
+</Window>

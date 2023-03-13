@@ -1,9 +1,9 @@
-﻿using DragonBallWiki.Commands;
-using DragonBallWiki.Views.Windows;
+﻿using DragonBallWiki.Views.Windows;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using BaseClasses;
 
 namespace DragonBallWiki.ViewModel
 {
@@ -16,29 +16,31 @@ namespace DragonBallWiki.ViewModel
         {
             CloseCommand = new BaseCommand((o) =>
             {
-                if (o is Button b)
+                if (o is not Button b) return;
+                switch (b.Name)
                 {
-                    if (b.Name.Equals("Save"))
+                    case "Save":
                     {
-                        foreach (Window w in Application.Current.Windows)
+                        for (var index = 0; index < Application.Current.Windows.Count; index++)
                         {
-                            if (w.GetType().Equals(typeof(ModalWindow)))
-                            {
-                                Trace.WriteLine("Speichern");
-                                w.Close();
-                            }
+                            var w = Application.Current.Windows[index];
+                            if (!w.GetType().Equals(typeof(ModalWindow))) continue;
+                            Trace.WriteLine("Speichern");
+                            w.Close();
                         }
+
+                        break;
                     }
-                    else if (b.Name.Equals("Cancel"))
+                    case "Cancel":
                     {
                         foreach (Window w in Application.Current.Windows)
                         {
-                            if (w.GetType().Equals(typeof(ModalWindow)))
-                            {
-                                Trace.WriteLine("Abbrechen");
-                                w.Close();
-                            }
+                            if (!w.GetType().Equals(typeof(ModalWindow))) continue;
+                            Trace.WriteLine("Abbrechen");
+                            w.Close();
                         }
+
+                        break;
                     }
                 }
             });

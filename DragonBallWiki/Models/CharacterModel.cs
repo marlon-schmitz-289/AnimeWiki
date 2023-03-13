@@ -6,14 +6,14 @@ using System.Windows.Media.Imaging;
 
 namespace DragonBallWiki.Models
 {
-    public class Character
+    public class CharacterModel
     {
         #region Properties
         public int ID { get; set; }
         public string Name { get; set; } = "Unbekannt";
         public string Description { get; set; } = "Leer";
         public string OriginAnime { get; set; } = "Unbekannt";
-        public List<Ability> Abilities { get; set; } = new() { new() };
+        public List<AbilityModel> Abilities { get; set; } = new() { new() };
         public Image Image { get; private set; } = new();
         private string imageData = "nicht vorhanden";
         public string ImageData
@@ -49,7 +49,7 @@ namespace DragonBallWiki.Models
         }
 
         public override bool Equals (object? obj) => obj is not null
-                                                  && obj is Character other
+                                                  && obj is CharacterModel other
                                                   && other.ID == ID
                                                   && other.OriginAnime.Equals(OriginAnime)
                                                   && other.Name.Equals(Name);

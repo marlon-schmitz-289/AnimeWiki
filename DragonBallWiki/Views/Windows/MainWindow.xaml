@@ -7,17 +7,17 @@
         xmlns:vm="clr-namespace:DragonBallWiki.ViewModel"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Super KKK (Krass, krank und kool) Anime Character Wiki"
+        Title="Super krasses Anime Character Wiki"
         Height="720"
         Width="1280">
     
     <Window.DataContext>
-        <vm:MainWindowViewModel x:Name="mwvmodel" />
+        <vm:MainWindowViewModel />
     </Window.DataContext>
     
     <ie:Interaction.Triggers>
         <ie:EventTrigger EventName="Loaded">
-            <ie:InvokeCommandAction Command="{Binding CmdOnLoad}"/>
+            <ie:InvokeCommandAction Command="{Binding CmdOnLoad}" />
         </ie:EventTrigger>
     </ie:Interaction.Triggers>
     

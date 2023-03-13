@@ -1,8 +1,8 @@
-﻿using DragonBallWiki.Commands;
-using DragonBallWiki.Models;
+﻿using DragonBallWiki.Models;
 using DragonBallWiki.Stores;
 using DragonBallWiki.Views.Pages;
 using System.Windows.Input;
+using BaseClasses;
 
 namespace DragonBallWiki.ViewModel
 {
@@ -12,30 +12,31 @@ namespace DragonBallWiki.ViewModel
         public ICommand BackCommand { get; set; }
 
 
-        private Character currCharacter;
-        public Character CurrCharacter
+        private CharacterModel _currCharacterModel;
+
+        public CharacterModel CurrCharacterModel
         {
-            get => currCharacter;
+            get => _currCharacterModel;
             set
             {
-                currCharacter = value;
-                OnPropertyChanged(nameof(CurrCharacter));
+                _currCharacterModel = value;
+                OnPropertyChanged(nameof(CurrCharacterModel));
             }
         }
 
 
-        public CharacterAddViewModel ()
+        public CharacterAddViewModel()
         {
-            CurrCharacter = new();
+            CurrCharacterModel = new();
 
             AddCommand = new BaseCommand((o) =>
             {
                 // save CurrCharacter to database
-            }, (o) => CurrCharacter is not null);
+            }, (o) => CurrCharacterModel is not null);
 
             BackCommand = new BaseCommand((o) =>
             {
-                CurrCharacter = new();
+                CurrCharacterModel = new();
                 CurrPageStore.SetCurr(new WikiPage());
             });
         }

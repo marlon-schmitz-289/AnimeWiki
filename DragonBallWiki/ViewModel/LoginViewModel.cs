@@ -1,13 +1,37 @@
-﻿using DragonBallWiki.Commands;
-using DragonBallWiki.Stores;
+﻿using DragonBallWiki.Stores;
 using DragonBallWiki.Views.Pages;
 using System.Windows.Input;
+using BaseClasses;
+using DragonBallWiki.Models;
 
 namespace DragonBallWiki.ViewModel
 {
     class LoginViewModel : BaseModel
     {
-        public ICommand CmdLogin { get; set; }
+        private ICommand _cmdLogin;
+        public ICommand CmdLogin
+        {
+            get => _cmdLogin;
+            private set
+            {
+                if (Equals(value, _cmdLogin)) return;
+                _cmdLogin = value;
+                OnPropertyChanged();
+            }
+        }
+
+        
+        private UserModel _currUser;
+        public UserModel CurrUser
+        {
+            get => _currUser;
+            set
+            {
+                if (Equals(value, _currUser)) return;
+                _currUser = value;
+                OnPropertyChanged();
+            }
+        }
 
 
         public LoginViewModel ()
@@ -18,7 +42,10 @@ namespace DragonBallWiki.ViewModel
 
         private void Login (object o)
         {
-            CurrPageStore.SetCurr(new WikiPage());
+            if (CurrUser is not null)
+            {
+                CurrPageStore.SetCurr(new WikiPage());
+            }
         }
     }
 }

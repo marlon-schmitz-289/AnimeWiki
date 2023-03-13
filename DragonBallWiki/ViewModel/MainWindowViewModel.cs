@@ -1,8 +1,8 @@
-﻿using DragonBallWiki.Commands;
-using DragonBallWiki.Stores;
+﻿using DragonBallWiki.Stores;
 using DragonBallWiki.Views.Pages;
 using System.Windows.Controls;
 using System.Windows.Input;
+using BaseClasses;
 
 namespace DragonBallWiki.ViewModel
 {
@@ -30,7 +30,7 @@ namespace DragonBallWiki.ViewModel
         }
 
 
-        public static void OnLoad (object sender)
+        private static void OnLoad (object sender)
         {
 #if !DEBUG
             MediaPlayerStore.InitializePlayer();

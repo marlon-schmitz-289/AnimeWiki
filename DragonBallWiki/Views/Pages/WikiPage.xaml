@@ -11,7 +11,7 @@
       d:DesignWidth="800"
       Title="WikiPage">
     <Page.DataContext>
-        <vm:WikiViewModel x:Name="wvm"/>
+        <vm:WikiViewModel x:Name="Wvm"/>
     </Page.DataContext>
 
     <Grid>
@@ -44,7 +44,7 @@
         </StackPanel>
 
         <ListView ItemsSource="{Binding Characters}"
-                  SelectedItem="{Binding CurrCharacter}"
+                  SelectedItem="{Binding CurrCharacterModel}"
                   Grid.Column="1"
                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
                   ScrollViewer.VerticalScrollBarVisibility="Auto">

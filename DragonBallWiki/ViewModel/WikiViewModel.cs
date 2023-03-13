@@ -1,11 +1,10 @@
-﻿using DragonBallWiki.Commands;
-using DragonBallWiki.Models;
+﻿using DragonBallWiki.Models;
 using DragonBallWiki.Stores;
 using DragonBallWiki.Views.Pages;
 using DragonBallWiki.Views.Windows;
-using Microsoft.VisualBasic;
 using System.Collections.Generic;
 using System.Windows.Input;
+using BaseClasses;
 
 namespace DragonBallWiki.ViewModel
 {
@@ -16,8 +15,8 @@ namespace DragonBallWiki.ViewModel
         public ICommand DeleteCommand { get; set; }
 
 
-        private List<Character> characters;
-        public List<Character> Characters
+        private List<CharacterModel> characters;
+        public List<CharacterModel> Characters
         {
             get => characters;
             set
@@ -28,14 +27,14 @@ namespace DragonBallWiki.ViewModel
         }
 
 
-        private Character currCharacter;
-        public Character CurrCharacter
+        private CharacterModel _currCharacterModel;
+        public CharacterModel CurrCharacterModel
         {
-            get => currCharacter;
+            get => _currCharacterModel;
             set
             {
-                currCharacter = value;
-                OnPropertyChanged(nameof(CurrCharacter));
+                _currCharacterModel = value;
+                OnPropertyChanged(nameof(CurrCharacterModel));
             }
         }
 
@@ -44,31 +43,31 @@ namespace DragonBallWiki.ViewModel
         {
             Characters = new()
             {
-                new Character
+                new CharacterModel
                 {
                     Name = "Jesus",
                     Description = "Sohn Gottes",
                     Abilities = new()
                     {
-                        new Ability
+                        new AbilityModel
                         {
                             Name = "Water Walk",
                             Description = "Kann auf der Wasseroberfläche laufen"
                         },
-                        new Ability
+                        new AbilityModel
                         {
                             Name = "Ultimate Heal",
                             Description = "Kann selbst Blindheit heilen"
                         }
                     }
                 },
-                new Character
+                new CharacterModel
                 {
                     Name = "Judas",
                     Description = "Jünger unter Jesus",
                     Abilities = new()
                     {
-                        new Ability
+                        new AbilityModel
                         {
                             Name = "Ultimate Betrayal",
                             Description = "Verrät alles und jeden, selbst Gott ist nicht sicher"
@@ -87,7 +86,7 @@ namespace DragonBallWiki.ViewModel
             EditCommand = new BaseCommand((o) =>
             {
                 CurrPageStore.SetCurr(new CharacterEditPage());
-            }, (s) => CurrCharacter is not null);
+            }, (s) => CurrCharacterModel is not null);
 
 
             DeleteCommand = new BaseCommand((o) =>
@@ -95,7 +94,7 @@ namespace DragonBallWiki.ViewModel
                 // delete CurrCharacter
                 var modal = new ModalWindow("Test", "Test Test");
                 modal.ShowDialog();
-            }, (s) => CurrCharacter is not null);
+            }, (s) => CurrCharacterModel is not null);
         }
     }
 }

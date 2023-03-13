@@ -5,6 +5,10 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DragonBallWiki", "DragonBallWiki\DragonBallWiki.csproj", "{9F5DF7FF-12A7-4BE6-8CF4-AD7AC52713DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseClasses", "BaseClasses\BaseClasses.csproj", "{089FFF44-2B0B-41BC-9329-EB2BA70D5466}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordGenerator", "PasswordGenerator\PasswordGenerator.csproj", "{809F2CC8-C4A5-400C-973E-B3522201F256}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{9F5DF7FF-12A7-4BE6-8CF4-AD7AC52713DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F5DF7FF-12A7-4BE6-8CF4-AD7AC52713DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F5DF7FF-12A7-4BE6-8CF4-AD7AC52713DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{089FFF44-2B0B-41BC-9329-EB2BA70D5466}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{089FFF44-2B0B-41BC-9329-EB2BA70D5466}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{089FFF44-2B0B-41BC-9329-EB2BA70D5466}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{089FFF44-2B0B-41BC-9329-EB2BA70D5466}.Release|Any CPU.Build.0 = Release|Any CPU
+		{809F2CC8-C4A5-400C-973E-B3522201F256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{809F2CC8-C4A5-400C-973E-B3522201F256}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{809F2CC8-C4A5-400C-973E-B3522201F256}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{809F2CC8-C4A5-400C-973E-B3522201F256}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

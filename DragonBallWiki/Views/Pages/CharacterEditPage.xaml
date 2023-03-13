@@ -11,7 +11,7 @@
       Title="CharacterEditPage">
     
     <Page.DataContext>
-        <vm:CharacterEditViewModel x:Name="cevm"/>
+        <vm:CharacterEditViewModel x:Name="Cevm"/>
     </Page.DataContext>
 
     <Grid Margin="10">

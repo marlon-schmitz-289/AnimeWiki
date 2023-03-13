@@ -1,8 +1,7 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Windows.Input;
 
-namespace DragonBallWiki.Commands
+namespace BaseClasses
 {
   public class BaseCommand : ICommand
   {
